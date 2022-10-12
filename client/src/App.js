@@ -8,13 +8,15 @@ import FeaturedCharts from './pages/Charts';
 import ContactForm from './pages/ContactForm';
 import BlogPart from './pages/Blog';
 import UpdateCharts from './pages/UpdateCharts';
+import SignUpForm from './components/SignUpForm';
 
 function App() {
   return (
     <div className='App'>
       <Navbar />
       <Routes>
-        <Route exact path='/' element={<LandingPage />}></Route>
+        <Route exact path='/' element={<SignUpForm />} />
+        <Route path='/home' element={<LandingPage />}></Route>
         <Route path='/add' element={<CreateCharts />}></Route>
         <Route path='/chart' element={<FeaturedCharts />} ></Route>
         <Route path='/update' element={<UpdateCharts />} ></Route>
