@@ -1,0 +1,24 @@
+#navbar{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: left;
+    padding:0;
+    list-style-type:none;
+    border-bottom: 2px solid #ccc;
+}
+#nav{
+    padding:15px;
+    font-size: medium;
+    float: left;
+}
+#link{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.575);
+
+}
+#link:hover{
+    color: yellowgreen;
+}
+#link:active{
+    color: rgb(255, 174, 60);
+ }

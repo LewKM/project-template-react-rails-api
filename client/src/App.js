@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { Routes, Route} from 'react-router-dom';
+import "./App.css";
+import LandingPage from './pages/Home';
+import CreateCharts from './pages/CreateCharts';
+import FeaturedCharts from './pages/Charts';
+import ContactForm from './pages/ContactForm';
+import BlogPart from './pages/Blog';
+import UpdateCharts from './pages/UpdateCharts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Navbar />
+      <Routes>
+        <Route exact path='/' element={<LandingPage />}></Route>
+        <Route path='/add' element={<CreateCharts />}></Route>
+        <Route path='/chart' element={<FeaturedCharts />} ></Route>
+        <Route path='/update' element={<UpdateCharts />} ></Route>
+        <Route path='/contact' element={<ContactForm />}></Route>
+        <Route path='/blog' element={<BlogPart />}></Route>
+      </Routes>
+      <Footer />
     </div>
+
   );
 }
 

@@ -1,0 +1,49 @@
+#main-page{
+  width: 100%;
+  background-image: url("/public/1304041.jpg");
+  background-attachment: fixed;
+  color: white;
+}
+
+.chart-container{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.card{
+  width: 90%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-card{
+  position: relative;
+  float: left;
+  width: 60%;
+}
+
+.img-card img{
+  width: 70%;
+  /* height: 80%; */
+  object-fit: cover;
+}
+
+.detail-card{
+  position: relative;
+  float: right;
+  width: 30%;
+  padding: 20px;
+}
+
+.detail-card p{
+  font-style: italic;
+}
+
+button{
+ width: 20%;
+}
+
