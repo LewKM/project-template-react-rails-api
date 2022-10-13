@@ -1,18 +1,18 @@
 import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
-import { Button } from "../styles";
+import { Button } from "semantic-ui-react";
+
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <Wrapper>
-      <Logo>Reciplease</Logo>
+    <wrapper>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
-          <Divider />
+          <divider />
           <p>
             Don't have an account? &nbsp;
             <Button color="secondary" onClick={() => setShowLogin(false)}>
@@ -23,7 +23,7 @@ function Login({ onLogin }) {
       ) : (
         <>
           <SignUpForm onLogin={onLogin} />
-          <Divider />
+          <divider />
           <p>
             Already have an account? &nbsp;
             <Button color="secondary" onClick={() => setShowLogin(true)}>
@@ -32,7 +32,7 @@ function Login({ onLogin }) {
           </p>
         </>
       )}
-    </Wrapper>
+    </wrapper>
   );
 }
 
