@@ -1,4 +1,4 @@
-class ChartsController < ApplicationController
+class Api::ChartsController < ApplicationController
   before_action :set_chart, only: [:show, :update, :destroy]
 
   # GET /charts

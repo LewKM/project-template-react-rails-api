@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class  Api::UsersController < ApplicationController
+  skip_before_action :authorize, only: :create
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -8,21 +9,21 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  # GET /users/1
-  def show
-    render json: @user
-  end
+  # # GET /users/1
+  # def show
+  #   render json: @user
+  # end
 
-  # POST /users
-  def create
-    @user = User.new(user_params)
+  # # POST /users
+  # def create
+  #   @user = User.new(user_params)
 
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @user.save
+  #     render json: @user, status: :created, location: @user
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /users/1
   def update
@@ -33,9 +34,19 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  def destroy
-    @user.destroy
+  # # DELETE /users/1
+  # def destroy
+  #   @user.destroy
+  # end
+
+  def create
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
+  end
+
+  def show
+    render json: @current_user
   end
 
   private
