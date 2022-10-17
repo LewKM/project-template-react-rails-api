@@ -1,34 +1,37 @@
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import { Routes, Route} from 'react-router-dom';
-import "./App.css";
-import LandingPage from './pages/Home';
-import CreateCharts from './pages/CreateCharts';
-import FeaturedCharts from './pages/Charts';
-import ContactForm from './pages/ContactForm';
-import BlogPart from './pages/Blog';
-import Login from './pages/Login';
-import UpdateCharts from './pages/UpdateCharts';
-import SignUpForm from './components/SignUpForm';
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/NavBar/NavBar";
+import JobList from "./components/JobList/JobList";
+import JobDetails from "./components/JobDetails/JobDetails";
+import { Route, Routes } from "react-router-dom";
+import SignUp from "./components/SignUp/SignUp";
+import Login from "./components/Login/Login";
+import AddJob from "./components/AddJob/AddJob";
+import Home from "./components/HomePage/Home";
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
   return (
-    <div className='App'>
-      <Navbar />
+    <div>
+      <Navbar setUser={setUser} user={user} />
       <Routes>
-        <Route exact path='/' element={<Login />} />
-        <Route path='/signup' element={<SignUpForm />} />
-        <Route path='/home' element={<LandingPage />}></Route>
-        <Route path='/add' element={<CreateCharts />}></Route>
-        <Route path='/chart' element={<FeaturedCharts />} ></Route>
-        <Route path='/update' element={<UpdateCharts />} ></Route>
-        <Route path='/contact' element={<ContactForm />}></Route>
-        <Route path='/blog' element={<BlogPart />}></Route>
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/charts-page" element={<JobList />} />
+        <Route path="/charts-page/:id" element={<JobDetails user={user}/>} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={<Login setUser={setUser} />} />
+        <Route path="/post-chart" element={<AddJob user={user}/>} />
       </Routes>
-      <Footer />
     </div>
-
   );
 }
-
-export default App;
