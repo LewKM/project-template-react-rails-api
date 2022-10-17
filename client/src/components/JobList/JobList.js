@@ -9,6 +9,19 @@ export default function JobList() {
       .then((res) => res.json())
       .then(setCharts);
   }, []);
+
+    function onDelete(id) {
+    fetch("/charts/" + id, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => updateAfterDelete(id));
+  }
+
+  function updateAfterDelete(id) {
+    const updated = charts.filter((chart) => chart.id !== id);
+    setCharts(updated);
+  }
   
 
   return (
@@ -19,13 +32,19 @@ export default function JobList() {
         </div>
         <div className="row mt-4 g-1">
           {charts.map((chart) => (
-            <Card key={chart.id} 
-		id={chart.id}
-		trading_pair={chart.trading_pair}
-		image_url={chart.image_url}
-		comment={chart.comment}
-		user_id={chart.user_id} />
+            <Card 
+              key={chart.id} 
+              id={chart.id}
+              trading_pair={chart.trading_pair}
+              image_url={chart.image_url}
+              comment={chart.comment}
+              user_id={chart.user_id}
+              onClick={() => onDelete(chart.id)}
+              />
           ))}
+
+          {/*  button to delete the card with the specific chart */}
+          
         </div>
       </div>
     </div>

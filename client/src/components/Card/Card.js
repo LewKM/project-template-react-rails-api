@@ -1,21 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Card.css";
 
-export default function Card({ trading_pair, image_url, comment, user_id, id }) {
+export default function Card({ onClick, trading_pair, image_url, comment, user_id, id }) {
 
-  // function handleDelete(id) {
-  //   fetch("/reviews/" + id, {
-  //     method: "DELETE",
-  //   })
-  //     .then((r) => r.json())
-  //     .then(() => updateAfterDelete(idd));
-  // }
-
-  // function updateAfterDelete(idd) {
-  //   const updated = reviews.filter((review) => review.id !== idd);
-  //   setReviews(updated);
-  // }
   return (
     <div className="col-md-4 my-2" style={{ background: "white" }}>
       <div
@@ -41,9 +29,9 @@ export default function Card({ trading_pair, image_url, comment, user_id, id }) 
           </div>
           <div className="d-flex justify-content-between mt-3">
             {" "}
-            
-
-            {/* <span className="text-dark">${salary}</span> */}
+            {
+              <button className="btn btn-primary btn-sm">{onClick}</button>
+            }
             {/* <Link to={"/charts-page/" + id}>
               <button className="btn btn-primary btn-sm active">
                 Read More
