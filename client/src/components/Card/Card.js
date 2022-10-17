@@ -30,7 +30,7 @@ export default function Card({ onClick, trading_pair, image_url, comment, user_i
           <div className="d-flex justify-content-between mt-3">
             {" "}
             {
-              <button className="btn btn-primary btn-sm">{onClick}</button>
+              <button className="btn btn-primary btn-sm active">{onClick}</button>
             }
             {/* <Link to={"/charts-page/" + id}>
               <button className="btn btn-primary btn-sm active">
