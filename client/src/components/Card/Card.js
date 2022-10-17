@@ -2,7 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
-export default function Card({ tradingpair, image_url, comment, user, id }) {
+export default function Card({ trading_pair, image_url, comment, user_id, id }) {
+
+  // function handleDelete(id) {
+  //   fetch("/reviews/" + id, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then(() => updateAfterDelete(idd));
+  // }
+
+  // function updateAfterDelete(idd) {
+  //   const updated = reviews.filter((review) => review.id !== idd);
+  //   setReviews(updated);
+  // }
   return (
     <div className="col-md-4 my-2" style={{ background: "white" }}>
       <div
@@ -19,8 +32,8 @@ export default function Card({ tradingpair, image_url, comment, user, id }) {
         >
           {" "}
           <img src={image_url} width="350" alt="Logo" />{" "}
-          <span className="d-block font-weight-bold">{tradingpair}</span>
-          <hr /> <span>{user}</span>
+          <span className="d-block font-weight-bold">{trading_pair}</span>
+          <hr /> <span>{user_id}</span>
           <div className="d-flex flex-row align-items-center justify-content-center">
             {" "}
             {/*<i className="fa fa-map-marker"></i> */}
@@ -28,6 +41,8 @@ export default function Card({ tradingpair, image_url, comment, user, id }) {
           </div>
           <div className="d-flex justify-content-between mt-3">
             {" "}
+            
+
             {/* <span className="text-dark">${salary}</span> */}
             {/* <Link to={"/charts-page/" + id}>
               <button className="btn btn-primary btn-sm active">
