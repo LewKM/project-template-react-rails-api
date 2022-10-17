@@ -107,7 +107,7 @@ function JobDetails({ user }) {
     <DetailWrapper style={{ margin: "10% 20%" }}>
       <div>
         {/* <h2>{details.company}</h2> */}
-        <img style={{ width: "20vh" }} src={details.image_url} />
+        <img style={{ width: "400px" }} src={details.image_url} />
       </div>
       <Info style={{ padding: "0% 20%" }}>
         <Button
