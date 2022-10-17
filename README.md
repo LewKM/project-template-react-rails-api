@@ -61,7 +61,8 @@ https://sleepy-gorge-00984.herokuapp.com/
 * CSS - which was used to style the User Interface.
 * JavaScript - which was used for the generation and grading of the frontend JSON file database.
 [Go Back to the top](# React-Web-Forex-Idea-Platform)
-* JSON - was used to hold the database for the application deployed on heroku
+* PostGresql - was used to hold the database for the application deployed on heroku
+* Ruby ob Rails -  was used to create api to fetch the dat from the database.
 ## Known Bugs
 * The platform has no bugs in it.
 ## Licence
