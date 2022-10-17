@@ -29,11 +29,11 @@ export default function Card({ tradingpair, image_url, comment, user, id }) {
           <div className="d-flex justify-content-between mt-3">
             {" "}
             {/* <span className="text-dark">${salary}</span> */}
-            <Link to={"/charts-page/" + id}>
+            {/* <Link to={"/charts-page/" + id}>
               <button className="btn btn-primary btn-sm active">
                 Read More
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
